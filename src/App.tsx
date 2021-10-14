@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Number from "./Number";
 
 interface IState {
   count: number;
@@ -15,7 +16,7 @@ class App extends Component<{}, IState> {
     const { count } = this.state;
     return (
       <div>
-        <span>{count}</span>
+        <Number count={count} />
         <button onClick={this.add}>ADD</button>
       </div>
     );
