@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface IState {
+  count: number;
+}
+
+class App extends Component<{}, IState> {
+  state = { count: 0 };
+
+  add = () => {
+    this.setState((curr) => ({ count: curr.count + 1 }));
+  };
+
+  render() {
+    const { count } = this.state;
+    return (
+      <div>
+        <span>{count}</span>
+        <button onClick={this.add}>ADD</button>
+      </div>
+    );
+  }
 }
 
 export default App;
